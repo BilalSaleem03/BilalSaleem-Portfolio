@@ -7,14 +7,14 @@ const projects = [
     title: 'Car Dealership Platform',
     description: 'Built a full-stack dealership platform where users can post and purchase vehicles through a verified sales agent.',
     technologies: ['React', 'Node.js', 'Express.js', 'MongoDB'],
-    githubLink: '#',
+    githubLink: 'https://github.com/BilalSaleem03/Car-Dealership-MongoDB',
     liveLink: '#',
   },
   {
     title: 'Resorts Web Application',
     description: 'Developed a resort listing platform with user reviews, leveraging third-party APIs for enhanced functionality.',
     technologies: ['HTML/CSS', 'JavaScript', 'Bootstrap', 'Node.js', 'Express.js', 'MongoDB', 'Third Party API'],
-    githubLink: '#',
+    githubLink: 'https://github.com/BilalSaleem03/WanderLust',
     liveLink: '#',
   },
 ]
