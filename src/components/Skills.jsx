@@ -1,18 +1,28 @@
 'use client'
 
 const skills = [
-  { name: 'React', level: 90 },
+  { name: 'React', level: 80 },
+  { name: 'Next js', level: 60 },
+  { name: 'Redux', level: 65 },
+  { name: 'Nest js', level: 90 },
   { name: 'Node.js', level: 85 },
   { name: 'Express.js', level: 80 },
+  { name: 'REST APIs', level: 80 },
+  { name: 'PostgreSQL', level: 80 },
   { name: 'MongoDB', level: 75 },
   { name: 'SQL', level: 70 },
   { name: 'JavaScript', level: 90 },
-  { name: 'HTML/CSS', level: 95 },
-  { name: 'Python', level: 65 },
+  { name: 'TypeScript', level: 90 },
+  { name: 'Python', level: 85 },
+  { name: 'Numpy', level: 80 },
+  { name: 'Pandas', level: 80 },
+  { name: 'Matplotlib', level: 70 },
+  { name: 'Scikit-learn', level: 75 },
+  { name: 'Tensorflow', level: 75 },
   { name: 'Java', level: 70 },
-  { name: 'REST APIs', level: 85 },
-  { name: 'JWT', level: 80 },
-  { name: 'Redux', level: 65 },
+  { name: 'JWT', level: 90 },
+  { name: 'Git', level: 65 },
+  { name: 'Postman', level: 75 },
 ]
 
 export default function Skills() {
