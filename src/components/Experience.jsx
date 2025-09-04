@@ -2,22 +2,22 @@
 
 const experiences = [
   {
+    role: 'AI Engineer - Intern',
+    company: 'CitrusBits Private Limited',
+    period: 'July 2025 - Aug 2025',
+    description: [
+      'Worked on backend development using Nest.js and PostgreSQL. ',
+      'Gained practical exposure to Machine Learning (Scikit-learn).',
+      'Explored Deep Learning concepts (TensorFlow) and their applications.',
+    ],
+  },
+  {
     role: 'Operations Manager',
     company: 'IEEE CS CUI',
     period: 'Nov 2024 - Present',
     description: [
       'Organized COMPETE\'24, a national level hackathon',
       'Managed COMSATS Tech Summit (CTS), a national level hackathon',
-    ],
-  },
-  {
-    role: 'Joint Secretary',
-    company: 'IEEE CS CUI',
-    period: 'Feb 2024 - Nov 2024',
-    description: [
-      'Organized numerous events to facilitate knowledge exchange and collaboration',
-      'Volunteered in Frontier of Informational Technology (FIT) meeting',
-      'Led strategic planning and organized events, enhancing collaboration and knowledge exchange',
     ],
   },
 ]
