@@ -76,7 +76,7 @@
 
 'use client'
 
-import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiDownload, FiArrowRight } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 
 export default function Hero() {
@@ -85,7 +85,6 @@ export default function Hero() {
   }
 
   const downloadResume = () => {
-    // Assuming your resume is named "resume.pdf" in the public folder
     const link = document.createElement('a')
     link.href = '/resume.pdf'
     link.download = 'Muhammad_Bilal_Saleem_Resume.pdf'
@@ -98,60 +97,46 @@ export default function Hero() {
     {
       icon: <FiGithub size={20} />,
       href: 'https://github.com/BilalSaleem03',
-      label: 'GitHub',
-      color: 'hover:bg-gray-900 hover:text-white'
+      label: 'GitHub'
     },
     {
       icon: <FiLinkedin size={20} />,
       href: 'https://www.linkedin.com/in/muhammad-bilal-saleem-a175412a4/',
-      label: 'LinkedIn',
-      color: 'hover:bg-blue-700 hover:text-white'
+      label: 'LinkedIn'
     },
     {
       icon: <FiMail size={20} />,
       href: 'mailto:mr.bilalsaleem2003@gmail.com',
-      label: 'Email',
-      color: 'hover:bg-red-600 hover:text-white'
+      label: 'Email'
     }
   ]
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-      </div>
-
+    <section id="home" className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="lg:w-1/2"
           >
-            <div className="mb-2">
-              <span className="inline-block px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full mb-4">
-                👋 Hello, I'm
+            <div className="mb-4">
+              <span className="inline-block px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full">
+                MERN Stack Developer
               </span>
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-              <span className="block">Muhammad</span>
-              <span className="text-blue-600 dark:text-blue-400">Bilal Saleem</span>
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+              Muhammad <span className="text-blue-600">Bilal Saleem</span>
             </h1>
             
-            <div className="text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-6">
-              <span className="text-blue-600 dark:text-blue-400">MERN Stack Developer</span> & AI Enthusiast
-            </div>
-            
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl">
-              A passionate Computer Science student at COMSATS University, specializing in building full-stack web applications with modern technologies. Currently exploring AI/ML while leading as Operations Manager at IEEE CS.
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-lg">
+              Computer Science student at COMSATS University specializing in full-stack web development. 
+              Passionate about building scalable applications with modern technologies and exploring AI/ML.
             </p>
             
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex items-center gap-4 mb-8">
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={link.label}
@@ -161,7 +146,7 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`p-3 bg-white dark:bg-gray-800 rounded-full text-gray-800 dark:text-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 ${link.color} transform hover:-translate-y-1`}
+                  className="p-2.5 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
                   aria-label={link.label}
                 >
                   {link.icon}
@@ -171,20 +156,20 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-4">
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={scrollToContact}
-                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center gap-2 border border-blue-600"
               >
-                <FiMail />
-                Contact Me
+                Get in Touch
+                <FiArrowRight />
               </motion.button>
               
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={downloadResume}
-                className="px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg font-medium hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 flex items-center gap-2"
+                className="px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 flex items-center gap-2"
               >
                 <FiDownload />
                 Download Resume
@@ -193,26 +178,16 @@ export default function Hero() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:w-1/2 flex justify-center"
           >
             <div className="relative">
-              <div className="relative w-72 h-72 lg:w-96 lg:h-96">
-                <motion.div
-                  animate={{ 
-                    rotate: [0, 360],
-                  }}
-                  transition={{ 
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  className="absolute inset-0 rounded-full border-2 border-dashed border-blue-300 dark:border-blue-700"
-                />
+              <div className="relative w-64 h-64 lg:w-80 lg:h-80">
+                <div className="absolute inset-0 rounded-full border border-gray-300 dark:border-gray-700"></div>
                 
-                <div className="absolute inset-4 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
+                <div className="absolute inset-2 rounded-full overflow-hidden">
                   <img
                     src="/images/bilal-profile.jpg"
                     alt="Muhammad Bilal Saleem"
@@ -220,41 +195,34 @@ export default function Hero() {
                   />
                 </div>
 
-                {/* Floating elements */}
+                {/* Simple floating elements */}
                 <motion.div
                   animate={{ 
-                    y: [0, -20, 0],
-                    rotate: [0, 360]
+                    y: [0, -10, 0],
                   }}
                   transition={{ 
-                    y: {
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    },
-                    rotate: {
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
                   }}
-                  className="absolute -top-4 -right-4 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg"
+                  className="absolute -top-2 -right-2 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white"
                 >
                   <span className="font-bold text-sm">MERN</span>
                 </motion.div>
 
                 <motion.div
                   animate={{ 
-                    y: [0, 20, 0],
+                    y: [0, 10, 0],
                   }}
                   transition={{ 
                     duration: 4,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
+                    delay: 1
                   }}
-                  className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white shadow-lg"
+                  className="absolute -bottom-2 -left-2 w-10 h-10 bg-gray-800 dark:bg-gray-700 rounded-full flex items-center justify-center text-white"
                 >
-                  <span className="font-bold text-xs">AI/ML</span>
+                  <span className="font-bold text-xs">AI</span>
                 </motion.div>
               </div>
             </div>

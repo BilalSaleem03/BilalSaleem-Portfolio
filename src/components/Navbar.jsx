@@ -110,7 +110,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { FiMoon, FiSun, FiMenu, FiX, FiDownload } from 'react-icons/fi'
+import { FiMenu, FiX, FiDownload } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
@@ -123,7 +123,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
       
-      // Update active section based on scroll position
       const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact']
       const current = sections.find(section => {
         const element = document.getElementById(section)
@@ -158,7 +157,6 @@ export default function Navbar() {
   }
 
   const downloadResume = () => {
-    // Assuming your resume is named "resume.pdf" in the public folder
     const link = document.createElement('a')
     link.href = '/resume.pdf'
     link.download = 'Muhammad_Bilal_Saleem_Resume.pdf'
@@ -174,7 +172,7 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg' 
+          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-800' 
           : 'bg-transparent'
       }`}
     >
@@ -188,18 +186,19 @@ export default function Navbar() {
           >
             <Link 
               href="#home" 
-              className="text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-600 transition-all duration-300"
+              className="text-xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 transition-colors duration-300"
               onClick={(e) => {
                 e.preventDefault()
                 scrollToSection('#home')
               }}
             >
-              Bilal<span className="text-blue-600">.</span>
+              <span className="font-bold text-blue-600">B</span>ilal
+              <span className="text-blue-600">.</span>
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -209,10 +208,10 @@ export default function Navbar() {
               >
                 <button
                   onClick={() => scrollToSection(item.href)}
-                  className={`relative px-4 py-2 rounded-lg transition-all duration-300 ${
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
                     activeSection === item.href.replace('#', '')
                       ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {item.name}
@@ -232,9 +231,9 @@ export default function Navbar() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.6 }}
               onClick={downloadResume}
-              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl ml-4"
+              className="ml-4 flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300 border border-blue-600"
             >
-              <FiDownload size={18} />
+              <FiDownload size={16} />
               Resume
             </motion.button>
           </div>
@@ -245,7 +244,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -268,22 +267,21 @@ export default function Navbar() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`block w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
+                  className={`block w-full text-left px-4 py-3 rounded-lg transition-colors duration-300 ${
                     activeSection === item.href.replace('#', '')
-                      ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      ? 'bg-blue-50 dark:bg-blue-900/10 text-blue-600 dark:text-blue-400'
+                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
                 >
                   {item.name}
                 </button>
               ))}
               
-              {/* Resume Download Button for Mobile */}
               <button
                 onClick={downloadResume}
-                className="w-full flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-300 mt-2"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300 mt-2"
               >
-                <FiDownload size={18} />
+                <FiDownload size={16} />
                 Download Resume
               </button>
             </div>

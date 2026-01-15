@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    transpilePackages: ['framer-motion'],
-    experimental: {
-    esmExternals: 'loose'
-  }
+  reactStrictMode: true,
+}
 
-};
-
-export default nextConfig;
+export default nextConfig

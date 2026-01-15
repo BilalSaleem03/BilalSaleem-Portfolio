@@ -86,27 +86,23 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FiGithub, FiExternalLink, FiCode, FiServer, FiDatabase } from 'react-icons/fi'
+import { FiGithub, FiExternalLink } from 'react-icons/fi'
 
 const projects = [
   {
     title: 'Car Dealership Platform',
-    description: 'A full-stack dealership platform where users can post and purchase vehicles through verified sales agents. Features include user authentication, vehicle listing management, and secure payment integration.',
+    description: 'Built a full-stack dealership platform where users can post and purchase vehicles through a verified sales agent.',
     technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Redux'],
     githubLink: 'https://github.com/BilalSaleem03/Car-Dealership-MongoDB',
     liveLink: '#',
-    color: 'from-blue-500 to-blue-600',
-    icon: <FiDatabase />
   },
   {
     title: 'Resorts Web Application',
-    description: 'A comprehensive resort listing platform with user reviews and ratings. Integrated third-party APIs for location services and payment processing. Implemented responsive design and optimized performance.',
-    technologies: ['HTML/CSS', 'JavaScript', 'Bootstrap', 'Node.js', 'Express.js', 'MongoDB', 'Third Party API'],
+    description: 'Developed a resort listing platform with user reviews, leveraging third-party APIs for enhanced functionality.',
+    technologies: ['JavaScript', 'Bootstrap', 'Node.js', 'Express.js', 'MongoDB', 'API Integration'],
     githubLink: 'https://github.com/BilalSaleem03/WanderLust',
     liveLink: '#',
-    color: 'from-purple-500 to-purple-600',
-    icon: <FiServer />
-  }
+  },
 ]
 
 export default function Projects() {
@@ -121,155 +117,124 @@ export default function Projects() {
   }
 
   const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6
+        duration: 0.5
       }
     }
   }
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Projects</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Check out some of my recent work. Each project represents unique challenges and solutions.
-          </p>
-        </motion.div>
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Featured Projects
+            </h2>
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              A selection of my recent work showcasing technical expertise and problem-solving
+            </p>
+          </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-8"
-        >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="group"
-            >
-              <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 h-full">
-                {/* Project header with gradient */}
-                <div className={`relative h-48 bg-gradient-to-r ${project.color} overflow-hidden`}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl">
-                      {project.icon}
-                    </div>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 gap-8"
+          >
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
+                className="group"
+              >
+                <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300 h-full flex flex-col">
+                  {/* Project header */}
+                  <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
                   </div>
-                  
-                  {/* Floating tech badges */}
-                  <div className="absolute top-4 right-4 flex gap-2">
-                    {project.technologies.slice(0, 2).map((tech, i) => (
-                      <span key={i} className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full font-medium">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="absolute bottom-4 left-4">
-                    <h3 className="text-2xl font-bold text-white drop-shadow-lg">{project.title}</h3>
-                  </div>
-                </div>
 
-                {/* Project content */}
-                <div className="p-6">
-                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Technologies used */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                      <FiCode className="w-4 h-4" />
-                      Technologies Used
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
+                  {/* Technologies */}
+                  <div className="p-6">
+                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.map((tech, i) => (
-                        <motion.span
+                        <span 
                           key={i}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: i * 0.05 }}
-                          viewport={{ once: true }}
-                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 text-sm rounded-full hover:scale-105 transition-transform"
+                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full border border-gray-300 dark:border-gray-600"
                         >
                           {tech}
-                        </motion.span>
+                        </span>
                       ))}
                     </div>
-                  </div>
 
-                  {/* Action buttons */}
-                  <div className="flex gap-3">
-                    <motion.a
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-black transition-colors"
-                    >
-                      <FiGithub />
-                      View Code
-                    </motion.a>
-                    
-                    <motion.a
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all"
-                    >
-                      <FiExternalLink />
-                      Live Demo
-                    </motion.a>
+                    {/* Action buttons */}
+                    <div className="flex gap-3">
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-black transition-colors duration-300 border border-gray-900"
+                      >
+                        <FiGithub />
+                        View Code
+                      </motion.a>
+                      
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
+                      >
+                        <FiExternalLink />
+                        Live Demo
+                      </motion.a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
 
-        {/* More projects indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
-        >
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            Want to see more of my work?
-          </p>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://github.com/BilalSaleem03"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg font-medium hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all"
+          {/* GitHub link */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center"
           >
-            <FiGithub />
-            View All Projects on GitHub
-          </motion.a>
-        </motion.div>
+            <a
+              href="https://github.com/BilalSaleem03"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
+            >
+              <FiGithub />
+              View More Projects on GitHub
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

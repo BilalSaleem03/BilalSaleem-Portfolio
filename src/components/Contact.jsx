@@ -217,7 +217,6 @@
 
 
 
-
 'use client'
 
 import { useState } from 'react'
@@ -263,7 +262,6 @@ export default function Contact() {
       setIsSuccess(true)
       setFormData({ name: '', email: '', message: '' })
 
-      // Reset success message after 3 seconds
       setTimeout(() => setIsSuccess(false), 3000)
     } catch (err) {
       setError(err.message)
@@ -283,37 +281,27 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: <FiMail className="w-6 h-6" />,
+      icon: <FiMail className="w-5 h-5" />,
       title: "Email",
       content: "mr.bilalsaleem2003@gmail.com",
-      color: "from-blue-500 to-blue-600",
       link: "mailto:mr.bilalsaleem2003@gmail.com"
     },
     {
-      icon: <FiPhone className="w-6 h-6" />,
+      icon: <FiPhone className="w-5 h-5" />,
       title: "Phone",
       content: "+92 3220656582",
-      color: "from-purple-500 to-purple-600",
       link: "tel:+923220656582"
     },
     {
-      icon: <FiMapPin className="w-6 h-6" />,
+      icon: <FiMapPin className="w-5 h-5" />,
       title: "Location",
-      content: "House #266 Margalla Town, Islamabad",
-      color: "from-green-500 to-green-600",
+      content: "Islamabad, Pakistan",
       link: "https://maps.google.com"
     }
   ]
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 -z-10 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-      </div>
-
+    <section id="contact" className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -323,19 +311,19 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Touch</span>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Get In Touch
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Have a project in mind or want to collaborate? I'd love to hear from you!
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Feel free to reach out for collaborations, opportunities, or just to say hello
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
@@ -349,37 +337,35 @@ export default function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ x: 10 }}
-                    className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                    className="flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300 group"
                   >
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${info.color} text-white`}>
+                    <div className="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                       {info.icon}
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{info.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-400">{info.content}</p>
+                      <h3 className="font-medium text-gray-900 dark:text-white mb-1">{info.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">{info.content}</p>
                     </div>
                   </motion.a>
                 ))}
 
-                {/* Resume Download Card */}
+                {/* Resume Download */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                  className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-xl border border-blue-200 dark:border-blue-700"
+                  className="p-6 bg-blue-50 dark:bg-blue-900/10 rounded-lg border border-blue-200 dark:border-blue-800"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Want to know more?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    Download my resume to see my complete work experience, education, and skills.
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">View Full Profile</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                    Download my resume to see detailed information about my experience, education, and skills.
                   </p>
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={downloadResume}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300 border border-blue-600"
                   >
                     <FiDownload />
                     Download Resume
@@ -392,14 +378,14 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                   viewport={{ once: true }}
-                  className="p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-xl border border-green-200 dark:border-green-700"
+                  className="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                    <span className="font-medium text-green-800 dark:text-green-400">Available for opportunities</span>
+                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    <span className="font-medium text-gray-900 dark:text-white">Currently Available</span>
                   </div>
-                  <p className="text-sm text-green-700 dark:text-green-500 mt-2">
-                    Currently open to internships, freelance projects, and collaborations.
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                    Open to internships, freelance projects, and full-time opportunities.
                   </p>
                 </motion.div>
               </div>
@@ -407,29 +393,28 @@ export default function Contact() {
 
             {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send me a message</h3>
+              <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Send a Message</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Name
                     </label>
-                    <motion.input
-                      whileFocus={{ scale: 1.01 }}
+                    <input
                       type="text"
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300"
-                      placeholder="Enter your name"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors duration-300"
+                      placeholder="Your name"
                     />
                   </div>
 
@@ -437,16 +422,15 @@ export default function Contact() {
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Email
                     </label>
-                    <motion.input
-                      whileFocus={{ scale: 1.01 }}
+                    <input
                       type="email"
                       id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300"
-                      placeholder="Enter your email"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors duration-300"
+                      placeholder="Your email address"
                     />
                   </div>
 
@@ -454,27 +438,26 @@ export default function Contact() {
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Message
                     </label>
-                    <motion.textarea
-                      whileFocus={{ scale: 1.01 }}
+                    <textarea
                       id="message"
                       name="message"
                       rows="4"
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300 resize-none"
-                      placeholder="Tell me about your project or inquiry..."
-                    ></motion.textarea>
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors duration-300 resize-none"
+                      placeholder="Your message..."
+                    ></textarea>
                   </div>
 
                   {error && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
+                      className="flex items-center p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
                     >
                       <FiAlertCircle className="mr-2 text-red-600 dark:text-red-400" />
-                      <span className="text-red-700 dark:text-red-400">{error}</span>
+                      <span className="text-sm text-red-700 dark:text-red-400">{error}</span>
                     </motion.div>
                   )}
 
@@ -482,11 +465,11 @@ export default function Contact() {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800"
+                      className="flex items-center p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800"
                     >
                       <FiCheckCircle className="mr-2 text-green-600 dark:text-green-400" />
-                      <span className="text-green-700 dark:text-green-400">
-                        Message sent successfully! I'll get back to you soon.
+                      <span className="text-sm text-green-700 dark:text-green-400">
+                        Message sent successfully!
                       </span>
                     </motion.div>
                   )}
@@ -496,7 +479,7 @@ export default function Contact() {
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-70"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300 disabled:opacity-70 border border-blue-600"
                   >
                     {isSubmitting ? (
                       <>
@@ -505,12 +488,12 @@ export default function Contact() {
                       </>
                     ) : isSuccess ? (
                       <>
-                        <FiCheckCircle className="mr-2" />
-                        Message Sent!
+                        <FiCheckCircle />
+                        Message Sent
                       </>
                     ) : (
                       <>
-                        <FiSend className="mr-2" />
+                        <FiSend />
                         Send Message
                       </>
                     )}
@@ -518,7 +501,7 @@ export default function Contact() {
                 </form>
 
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">
-                  I typically respond within 24 hours
+                  I'll respond to your message within 24 hours
                 </p>
               </div>
             </motion.div>

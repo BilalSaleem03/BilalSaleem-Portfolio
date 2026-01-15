@@ -64,11 +64,10 @@
 
 
 
-
 'use client'
 
 import { motion } from 'framer-motion'
-import { FiBriefcase, FiCalendar, FiMapPin, FiAward } from 'react-icons/fi'
+import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi'
 
 const experiences = [
   {
@@ -81,8 +80,6 @@ const experiences = [
       'Gained practical exposure to Machine Learning (Scikit-learn)',
       'Explored Deep Learning concepts (TensorFlow) and their applications',
     ],
-    color: 'from-blue-500 to-blue-600',
-    icon: <FiBriefcase />
   },
   {
     role: 'Operations Manager',
@@ -92,12 +89,9 @@ const experiences = [
     description: [
       'Organized COMPETE\'24, a national level hackathon',
       'Managed COMSATS Tech Summit (CTS), a national level hackathon',
-      'Led a team of 15+ members for tech event coordination',
-      'Improved operational efficiency by 30% through process optimization',
+      'Led team coordination and operational improvements',
     ],
-    color: 'from-purple-500 to-purple-600',
-    icon: <FiAward />
-  }
+  },
 ]
 
 export default function Experience() {
@@ -112,25 +106,18 @@ export default function Experience() {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: 0.6
+        duration: 0.5
       }
     }
   }
 
   return (
-    <section id="experience" className="py-20 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 -z-10 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-      </div>
-
+    <section id="experience" className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -140,133 +127,83 @@ export default function Experience() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Experience</span>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Work Experience
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              My professional journey and hands-on experience in the tech industry
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              My professional journey and key roles in the tech industry
             </p>
           </motion.div>
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-gray-700"></div>
             
             <motion.div
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="space-y-12 lg:space-y-0"
+              className="space-y-12"
             >
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className={`relative lg:w-1/2 ${index % 2 === 0 ? 'lg:ml-0 lg:mr-auto lg:pr-12' : 'lg:ml-auto lg:pl-12'}`}
+                  className={`relative ${index % 2 === 0 ? 'lg:pr-12 lg:text-right' : 'lg:pl-12'}`}
                 >
-                  <div className="relative">
-                    {/* Timeline dot */}
-                    <div className={`hidden lg:block absolute top-6 ${index % 2 === 0 ? 'right-[-8px]' : 'left-[-8px]'} w-4 h-4 rounded-full bg-gradient-to-r ${exp.color} border-4 border-white dark:border-gray-900 shadow-lg`}></div>
-                    
-                    <motion.div
-                      whileHover={{ y: -5, scale: 1.02 }}
-                      className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-gray-700"
-                    >
-                      {/* Header with gradient */}
-                      <div className={`bg-gradient-to-r ${exp.color} p-6 text-white`}>
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-3">
-                            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
-                              {exp.icon}
-                            </div>
-                            <h3 className="text-2xl font-bold">{exp.role}</h3>
-                          </div>
-                          <div className="hidden sm:block">
-                            <span className="px-3 py-1 bg-white/20 rounded-full text-sm font-medium backdrop-blur-sm">
-                              {exp.period}
-                            </span>
+                  {/* Timeline dot */}
+                  <div className={`hidden lg:block absolute top-6 ${index % 2 === 0 ? 'right-[-6px]' : 'left-[-6px]'} w-3 h-3 rounded-full bg-blue-600 border-2 border-white dark:border-gray-900`}></div>
+                  
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    {/* Header */}
+                    <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
+                          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">{exp.role}</h3>
+                          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                            <FiBriefcase className="w-4 h-4" />
+                            <span>{exp.company}</span>
                           </div>
                         </div>
-                        
-                        <div className="flex flex-wrap items-center gap-4 mt-4">
-                          <div className="flex items-center gap-2">
-                            <FiBriefcase className="w-4 h-4 opacity-80" />
-                            <span className="font-medium">{exp.company}</span>
+                        <div className="text-right">
+                          <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-1">
+                            <FiCalendar className="w-4 h-4" />
+                            <span className="font-medium">{exp.period}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <FiMapPin className="w-4 h-4 opacity-80" />
-                            <span className="opacity-90">{exp.location}</span>
-                          </div>
-                          <div className="sm:hidden flex items-center gap-2">
-                            <FiCalendar className="w-4 h-4 opacity-80" />
-                            <span>{exp.period}</span>
+                          <div className="flex items-center gap-2 text-gray-500 dark:text-gray-500 text-sm">
+                            <FiMapPin className="w-3 h-3" />
+                            <span>{exp.location}</span>
                           </div>
                         </div>
                       </div>
+                    </div>
 
-                      {/* Content */}
-                      <div className="p-6">
-                        <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Key Responsibilities & Achievements</h4>
-                        <ul className="space-y-3">
-                          {exp.description.map((item, i) => (
-                            <motion.li
-                              key={i}
-                              initial={{ opacity: 0, x: -20 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ delay: i * 0.1 }}
-                              viewport={{ once: true }}
-                              className="flex items-start gap-3"
-                            >
-                              <div className={`w-2 h-2 mt-2 rounded-full bg-gradient-to-r ${exp.color} flex-shrink-0`}></div>
-                              <span className="text-gray-700 dark:text-gray-300">{item}</span>
-                            </motion.li>
-                          ))}
-                        </ul>
-
-                        {/* Tech stack tags */}
-                        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                          <h5 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-3">Technologies Used</h5>
-                          <div className="flex flex-wrap gap-2">
-                            {exp.role.includes('AI Engineer') ? (
-                              <>
-                                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm rounded-full">Nest.js</span>
-                                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm rounded-full">PostgreSQL</span>
-                                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-sm rounded-full">Scikit-learn</span>
-                                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-sm rounded-full">TensorFlow</span>
-                              </>
-                            ) : (
-                              <>
-                                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-sm rounded-full">Leadership</span>
-                                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-sm rounded-full">Event Management</span>
-                                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-sm rounded-full">Team Coordination</span>
-                                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-sm rounded-full">Problem Solving</span>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
+                    {/* Content */}
+                    <div className="p-6">
+                      <h4 className="font-medium text-gray-900 dark:text-white mb-4">Key Responsibilities</h4>
+                      <ul className="space-y-3">
+                        {exp.description.map((item, i) => (
+                          <motion.li
+                            key={i}
+                            initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            viewport={{ once: true }}
+                            className="flex items-start gap-3"
+                          >
+                            <div className="w-1.5 h-1.5 mt-2 rounded-full bg-blue-600 flex-shrink-0"></div>
+                            <span className="text-gray-600 dark:text-gray-400">{item}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
-
-          {/* Call to action */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium shadow-lg">
-              <span>🎯</span>
-              <span>Seeking new opportunities in Full Stack Development & AI</span>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
