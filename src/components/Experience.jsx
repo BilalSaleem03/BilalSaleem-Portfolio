@@ -63,7 +63,6 @@
 
 
 
-
 'use client'
 
 import { motion } from 'framer-motion'
@@ -117,9 +116,9 @@ export default function Experience() {
   }
 
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-900/30">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -137,8 +136,8 @@ export default function Experience() {
           </motion.div>
 
           <div className="relative">
-            {/* Timeline line */}
-            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-gray-700"></div>
+            {/* Timeline line - centered properly */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-gray-700"></div>
             
             <motion.div
               variants={containerVariants}
@@ -151,59 +150,117 @@ export default function Experience() {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className={`relative ${index % 2 === 0 ? 'lg:pr-12 lg:text-right' : 'lg:pl-12'}`}
+                  className={`relative flex ${
+                    index % 2 === 0 
+                      ? 'md:justify-end' 
+                      : 'md:justify-start'
+                  }`}
                 >
-                  {/* Timeline dot */}
-                  <div className={`hidden lg:block absolute top-6 ${index % 2 === 0 ? 'right-[-6px]' : 'left-[-6px]'} w-3 h-3 rounded-full bg-blue-600 border-2 border-white dark:border-gray-900`}></div>
+                  {/* Timeline dot - centered on line */}
+                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-gray-900 z-10"></div>
                   
-                  <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-                    {/* Header */}
-                    <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">{exp.role}</h3>
-                          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-                            <FiBriefcase className="w-4 h-4" />
-                            <span>{exp.company}</span>
+                  {/* Mobile timeline dot */}
+                  <div className="md:hidden absolute left-4 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-gray-900 z-10 -ml-1.5"></div>
+                  
+                  {/* Experience card */}
+                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:mr-6' : 'md:ml-6'} ml-12 md:ml-0`}>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                      {/* Header - Fixed alignment */}
+                      <div className="p-6 border-b border-gray-100 dark:border-gray-700">
+                        <div className="space-y-4">
+                          {/* Role and Company */}
+                          <div>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{exp.role}</h3>
+                            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                              <FiBriefcase className="w-4 h-4 flex-shrink-0" />
+                              <span className="text-sm">{exp.company}</span>
+                            </div>
                           </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 mb-1">
-                            <FiCalendar className="w-4 h-4" />
-                            <span className="font-medium">{exp.period}</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-gray-500 dark:text-gray-500 text-sm">
-                            <FiMapPin className="w-3 h-3" />
-                            <span>{exp.location}</span>
+                          
+                          {/* Period and Location - Better alignment */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-gray-100 dark:border-gray-700">
+                            <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400">
+                              <FiCalendar className="w-4 h-4 flex-shrink-0" />
+                              <div>
+                                <p className="text-xs font-medium">Duration</p>
+                                <p className="text-sm">{exp.period}</p>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-500">
+                              <FiMapPin className="w-4 h-4 flex-shrink-0" />
+                              <div>
+                                <p className="text-xs font-medium">Location</p>
+                                <p className="text-sm">{exp.location}</p>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Content */}
-                    <div className="p-6">
-                      <h4 className="font-medium text-gray-900 dark:text-white mb-4">Key Responsibilities</h4>
-                      <ul className="space-y-3">
-                        {exp.description.map((item, i) => (
-                          <motion.li
-                            key={i}
-                            initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            viewport={{ once: true }}
-                            className="flex items-start gap-3"
-                          >
-                            <div className="w-1.5 h-1.5 mt-2 rounded-full bg-blue-600 flex-shrink-0"></div>
-                            <span className="text-gray-600 dark:text-gray-400">{item}</span>
-                          </motion.li>
-                        ))}
-                      </ul>
+                      {/* Content */}
+                      <div className="p-6">
+                        <h4 className="font-medium text-gray-900 dark:text-white mb-4">Responsibilities & Achievements</h4>
+                        <ul className="space-y-3">
+                          {exp.description.map((item, i) => (
+                            <motion.li
+                              key={i}
+                              initial={{ opacity: 0, x: -10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{ delay: i * 0.1 }}
+                              viewport={{ once: true }}
+                              className="flex items-start gap-3"
+                            >
+                              <div className="w-1.5 h-1.5 mt-2 rounded-full bg-blue-600 flex-shrink-0"></div>
+                              <span className="text-gray-600 dark:text-gray-400">{item}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
+
+                        {/* Tech stack tags */}
+                        <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+                          <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Technologies & Skills</h5>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.role.includes('AI Engineer') ? (
+                              <>
+                                <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-xs rounded-full border border-blue-200 dark:border-blue-800">Nest.js</span>
+                                <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-xs rounded-full border border-blue-200 dark:border-blue-800">PostgreSQL</span>
+                                <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-xs rounded-full border border-blue-200 dark:border-blue-800">Scikit-learn</span>
+                                <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-xs rounded-full border border-blue-200 dark:border-blue-800">TensorFlow</span>
+                              </>
+                            ) : (
+                              <>
+                                <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-xs rounded-full border border-blue-200 dark:border-blue-800">Leadership</span>
+                                <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-xs rounded-full border border-blue-200 dark:border-blue-800">Event Management</span>
+                                <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-xs rounded-full border border-blue-200 dark:border-blue-800">Team Coordination</span>
+                                <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-xs rounded-full border border-blue-200 dark:border-blue-800">Problem Solving</span>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
+
+          {/* Call to action */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-16 text-center"
+          >
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-lg border border-blue-200 dark:border-blue-800">
+              <span className="text-lg">🎯</span>
+              <div>
+                <p className="font-medium">Open to new opportunities</p>
+                <p className="text-sm text-blue-600 dark:text-blue-500">Seeking roles in Full Stack Development & AI</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
