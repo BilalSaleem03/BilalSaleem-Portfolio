@@ -113,13 +113,7 @@ export default function Projects() {
                         </div>
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
                       </div>
-                      <div className="flex items-center gap-1 text-yellow-500">
-                        <FiStar className="w-4 h-4 fill-current" />
-                        <FiStar className="w-4 h-4 fill-current" />
-                        <FiStar className="w-4 h-4 fill-current" />
-                        <FiStar className="w-4 h-4 fill-current" />
-                        <FiStar className="w-4 h-4" />
-                      </div>
+                      
                     </div>
                     
                     <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
