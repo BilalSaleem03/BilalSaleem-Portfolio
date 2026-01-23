@@ -6,6 +6,19 @@ import { FiGithub, FiExternalLink, FiStar, FiCode } from 'react-icons/fi'
 
 const projects = [
   {
+    title: 'Resorts Web Application',
+    description: 'A comprehensive resort booking platform with user reviews and ratings. Integrated third-party APIs for location services and implemented responsive design for optimal user experience.',
+    technologies: ['JavaScript', 'Bootstrap', 'Node.js', 'Express.js', 'MongoDB', 'REST API'],
+    githubLink: 'https://github.com/BilalSaleem03/WanderLust',
+    liveLink: 'https://wanderlust-s7r9.onrender.com/listing',
+    features: [
+      'Resort search & booking',
+      'User review system',
+      'Third-party API integration',
+      'Responsive design'
+    ]
+  },
+  {
     title: 'Car Dealership Platform',
     description: 'A full-stack dealership platform where users can post and purchase vehicles through verified sales agents. Features include user authentication, vehicle listing management, and secure transactions.',
     technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Redux'],
@@ -19,16 +32,17 @@ const projects = [
     ]
   },
   {
-    title: 'Resorts Web Application',
-    description: 'A comprehensive resort booking platform with user reviews and ratings. Integrated third-party APIs for location services and implemented responsive design for optimal user experience.',
-    technologies: ['JavaScript', 'Bootstrap', 'Node.js', 'Express.js', 'MongoDB', 'REST API'],
-    githubLink: 'https://github.com/BilalSaleem03/WanderLust',
-    liveLink: 'https://wanderlust-s7r9.onrender.com/listing',
+    title: 'Clinical Appointment System',
+    description: 'Backend system for managing clinical appointments, patient records, and doctor schedules. Implemented RESTful APIs, Access Google Calendar, Sending Emails and ensured data security and integrity.',
+    technologies: ['TypeScript', 'Node.js', 'Nest js', 'PostgreSQL', 'REST API'],
+    githubLink: 'https://github.com/BilalSaleem03/Clinical-System-NEST-JS',
+    liveLink: '#',
     features: [
-      'Resort search & booking',
-      'User review system',
-      'Third-party API integration',
-      'Responsive design'
+      'Online appointment booking',
+      'Doctors,Patients and Admins roles',
+      'Google Calendar integration(OAuth)',
+      'Email notification system',
+      'Data security and integrity'
     ]
   }
 ]
