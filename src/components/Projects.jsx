@@ -6,6 +6,19 @@ import { FiGithub, FiExternalLink, FiStar, FiCode } from 'react-icons/fi'
 
 const projects = [
   {
+    title: 'Car Dealership Platform',
+    description: 'A full-stack dealership platform where users can post and purchase vehicles through verified sales agents. Features include user authentication, vehicle listing management, and secure transactions.',
+    technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Redux'],
+    githubLink: 'https://github.com/BilalSaleem03/Car-Dealership-MongoDB',
+    liveLink: 'https://autonexus-nu.vercel.app/',
+    features: [
+      'User authentication & authorization',
+      'Vehicle listing management',
+      'Search & filter functionality',
+      'Secure payment integration'
+    ]
+  },
+  {
     title: 'Resorts Web Application',
     description: 'A comprehensive resort booking platform with user reviews and ratings. Integrated third-party APIs for location services and implemented responsive design for optimal user experience.',
     technologies: ['JavaScript', 'Bootstrap', 'Node.js', 'Express.js', 'MongoDB', 'REST API'],
@@ -16,19 +29,6 @@ const projects = [
       'User review system',
       'Third-party API integration',
       'Responsive design'
-    ]
-  },
-  {
-    title: 'Car Dealership Platform',
-    description: 'A full-stack dealership platform where users can post and purchase vehicles through verified sales agents. Features include user authentication, vehicle listing management, and secure transactions.',
-    technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Redux'],
-    githubLink: 'https://github.com/BilalSaleem03/Car-Dealership-MongoDB',
-    liveLink: '#',
-    features: [
-      'User authentication & authorization',
-      'Vehicle listing management',
-      'Search & filter functionality',
-      'Secure payment integration'
     ]
   },
   {
