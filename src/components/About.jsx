@@ -14,7 +14,7 @@ export default function About() {
         <>
           <span className="font-medium">Bachelor of Computer Sciences</span><br />
           COMSATS University Islamabad<br />
-          2023 - 2027
+          2023 - 2026
         </>
       )
     },
@@ -141,18 +141,14 @@ export default function About() {
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Background</h3>
                 <div className="space-y-6">
                   <p className="text-gray-600 dark:text-gray-400">
-                    A third-year Computer Science student at COMSATS University, Islamabad, with a strong passion for 
-                    <span className="font-medium text-blue-600 dark:text-blue-400"> MERN Stack development</span> 
-                    and modern web technologies.
+                    Result-oriented Computer Science undergraduate specializing in full-stack web development and AI-driven automation. 
+                    
                   </p>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Through my role at IEEE Computer Society, I've honed <span className="font-medium">leadership, 
-                    event management, and problem-solving skills</span> while actively contributing to various 
-                    tech initiatives and community engagements.
+                    Proficient in designing scalable backend architectures, robust frontend interfaces, and implementing secure authentication pipelines.
                   </p>
                   <p className="text-gray-600 dark:text-gray-400">
-                    My dedication to technology and continuous learning drives me to innovate and contribute 
-                    meaningfully to every project I undertake.
+                    Adept at leveraging modern frameworks to engineer clean, maintainable, and highly efficient software solutions.
                   </p>
                 </div>
               </div>

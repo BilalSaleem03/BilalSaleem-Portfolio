@@ -7,7 +7,7 @@ import { FiGithub, FiExternalLink, FiStar, FiCode } from 'react-icons/fi'
 const projects = [
   {
     title: 'Car Dealership Platform',
-    description: 'A full-stack dealership platform where users can post and purchase vehicles through verified sales agents. Features include user authentication, vehicle listing management, and secure transactions.',
+    description: 'Built a full-stack e-commerce marketplace allowing users to securely list, browse, and purchase vehicles via verified agent tiers. Developed robust user authentication using JWT and built scalable CRUD operations for dynamic vehicle inventory management.',
     technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Redux'],
     githubLink: 'https://github.com/BilalSaleem03/Car-Dealership-MongoDB',
     liveLink: 'https://autonexus-nu.vercel.app/',
@@ -20,7 +20,7 @@ const projects = [
   },
   {
     title: 'Resorts Web Application',
-    description: 'A comprehensive resort booking platform with user reviews and ratings. Integrated third-party APIs for location services and implemented responsive design for optimal user experience.',
+    description: 'Architected a responsive full-stack listing platform enabling users to seamlessly browse dynamic resort properties, read detailed reviews, and submit verified user feedback. Integrated third-party APIs to fetch and render real-time external data, enriching the user experience with accurate localization or pricing details. Designed a structured MongoDB database schema to efficiently manage relational-like data models for user accounts, reviews, and resort inventory',
     technologies: ['JavaScript', 'Bootstrap', 'Node.js', 'Express.js', 'MongoDB', 'REST API'],
     githubLink: 'https://github.com/BilalSaleem03/WanderLust',
     liveLink: 'https://wanderlust-s7r9.onrender.com/listing',
@@ -33,10 +33,10 @@ const projects = [
   },
   {
     title: 'Clinical Appointment System',
-    description: 'Backend system for managing clinical appointments, patient records, and doctor schedules. Implemented RESTful APIs, Access Google Calendar, Sending Emails and ensured data security and integrity.',
-    technologies: ['TypeScript', 'Node.js', 'Nest js', 'PostgreSQL', 'REST API'],
+    description: 'Designed a secure backend system handling clinical scheduling, patient records, and doctor workflows. Integrated Google Calendar API via OAuth 2.0 to automate real-time appointment syncing and minimize schedule conflicts. Implemented automated email notification triggers using Node.js backend queues to streamline patient communication.',
+    technologies: ['TypeScript', 'Node.js', 'Nest js', 'PostgreSQL', 'OAuth 2.0', 'Google Calendar API'],
     githubLink: 'https://github.com/BilalSaleem03/Clinical-System-NEST-JS',
-    liveLink: '#',
+    // liveLink: '#',
     features: [
       'Online appointment booking',
       'Doctors,Patients and Admins roles',
@@ -44,7 +44,32 @@ const projects = [
       'Email notification system',
       'Data security and integrity'
     ]
-  }
+  },
+  {
+    title: 'Agentic AI Knowledge Chatbot ',
+    description: ' Architected an autonomous AI Agent using LangGraph to manage complex, multi-turn conversations with robust state management and fallback routing. Implemented a Retrieval-Augmented Generation (RAG) pipeline to anchor LLM responses in custom vector data, minimizing hallucinations. Engineered dynamic tool-calling systems, empowering the agent to programmatically decide when to call local internal utilities versus external APIs.',
+    technologies: ['LangGraph', 'Python', 'RAG', 'OpenAI', 'Streamlit'],
+    githubLink: 'https://github.com/BilalSaleem03/LangGraph-Practical/tree/main/ChatBot_with_UI',
+    // liveLink: '#',
+    features: [
+      'Multiple independent chats',
+      'RAG pipeline for accurate responses',
+      'Dynamic tool-calling system',
+      'Observability and memory management',
+    ]
+  },
+  {
+    title: 'Real-Time Collaborative Chat Application ',
+    description: 'Developed a secure chat application supporting standard email/password authentication alongside seamless Google OAuth 2.0 registration. Designed efficient MongoDB schemas to index, store, and seamlessly fetch high-throughput historical chat messages and room metadata. Built responsive React interface modules to synchronize state adjustments instantaneously during heavy, multi-user messaging traffic.',
+    technologies: ['React', 'Express.js', 'MongoDB', 'Google OAuth 2.0'],
+    githubLink: 'https://github.com/BilalSaleem03/Chat-App-Frontend',
+    // liveLink: '#',
+    features: [
+      'User authentication & authorization',
+      'Real-time messaging with Socket.io',
+      'Chat room creation and management',
+    ]
+  },
 ]
 
 export default function Projects() {

@@ -84,7 +84,7 @@ export default function Navbar() {
                 scrollToSection('#home')
               }}
             >
-              <span className="font-bold text-blue-600">B</span>ilal
+              <span className="font-bold text-blue-600">Bilal</span>Saleem
               <span className="text-blue-600">.</span>
             </Link>
           </motion.div>

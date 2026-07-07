@@ -5,15 +5,24 @@ import { FiCode, FiServer, FiDatabase, FiCpu, FiTool } from 'react-icons/fi'
 
 const skillCategories = [
   {
+    name: "Languages",
+    icon: <FiCode className="w-5 h-5" />,
+    skills: [
+      { name: 'JavaScript', level: 85 },
+      { name: 'TypeScript', level: 80 },
+      { name: 'Python', level: 80 },
+      { name: 'SQL', level: 70 },
+    ]
+  },
+  {
     name: "Frontend Development",
     icon: <FiCode className="w-5 h-5" />,
     skills: [
       { name: 'React', level: 80 },
       { name: 'Next.js', level: 60 },
-      { name: 'JavaScript', level: 90 },
-      { name: 'TypeScript', level: 90 },
       { name: 'Redux', level: 65 },
-      { name: 'HTML/CSS', level: 85 },
+      { name: 'HTML5/CSS3', level: 85 },
+      { name: 'Bootstrap', level: 70 },
     ]
   },
   {
@@ -21,10 +30,10 @@ const skillCategories = [
     icon: <FiServer className="w-5 h-5" />,
     skills: [
       { name: 'Node.js', level: 85 },
-      { name: 'Express.js', level: 80 },
+      { name: 'Express.js', level: 90 },
       { name: 'Nest.js', level: 90 },
+      { name: 'FAST APIs', level: 80 },
       { name: 'REST APIs', level: 80 },
-      { name: 'JWT', level: 90 },
       { name: 'Socket.io', level: 70 },
     ]
   },
@@ -35,14 +44,16 @@ const skillCategories = [
       { name: 'MongoDB', level: 75 },
       { name: 'PostgreSQL', level: 80 },
       { name: 'SQL', level: 70 },
-      { name: 'Mongoose', level: 75 },
     ]
   },
   {
-    name: "AI/ML & Data Science",
+    name: "AI & Automation",
     icon: <FiCpu className="w-5 h-5" />,
     skills: [
-      { name: 'Python', level: 85 },
+      { name: 'Agentic AI', level: 70 },
+      { name: 'LangGraph', level: 80 },
+      { name: 'RAG', level: 75 },
+      { name: 'OPENAI APIS', level: 75 },
       { name: 'NumPy', level: 80 },
       { name: 'Pandas', level: 80 },
       { name: 'Scikit-learn', level: 75 },
@@ -51,15 +62,15 @@ const skillCategories = [
     ]
   },
   {
-    name: "Tools & Others",
+    name: "Developer Tools",
     icon: <FiTool className="w-5 h-5" />,
     skills: [
-      { name: 'Git', level: 65 },
-      { name: 'Postman', level: 75 },
-      { name: 'Docker', level: 60 },
-      { name: 'Java', level: 70 },
-      { name: 'Bootstrap', level: 75 },
-      { name: 'Tailwind CSS', level: 85 },
+      { name: 'Git', level: 80 },
+      { name: 'Postman', level: 85 },
+      { name: 'Docker', level: 70 },
+      { name: 'JWT', level: 85 },
+      { name: 'Multi-Provider OAuth 2.0', level: 75 },
+      { name: 'Stripe', level: 80 },
     ]
   }
 ]
